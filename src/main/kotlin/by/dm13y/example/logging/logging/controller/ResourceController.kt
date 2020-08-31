@@ -21,7 +21,7 @@ class ResourceController(
         return resoureService.getPlatformInvalidResource()
     }
 
-    @GetMapping("/platform/invalid")
+    @GetMapping("/platform/unknown")
     fun getUnknownPlatformResource(): ResourceDto {
         return resoureService.getPlatformValidResource()
     }
@@ -36,8 +36,8 @@ class ResourceController(
         return resoureService.getExternalInvalidResource()
     }
 
-    @GetMapping("/external/invalid")
+    @GetMapping("/external/unknown")
     fun getUnknownExternalResource(): ResourceDto {
-        return resoureService.getEternalUnknownResource();
+        return resoureService.getEternalUnknownResource()
     }
 }
