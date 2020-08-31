@@ -24,7 +24,9 @@ class ResourceServiceImpl(
     }
 
     override fun getExternalValidResource(): ResourceDto {
-        TODO("Not yet implemented")
+        return platformApi.getValidCity().let {
+            ResourceDto(it.id)
+        }
     }
 
     override fun getExternalInvalidResource(): ResourceDto {
