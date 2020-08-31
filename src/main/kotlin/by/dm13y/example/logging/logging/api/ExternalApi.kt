@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable
 /**
  * Api for external platform services
  */
-@FeignClient(name = "inner-service-city", url = "https://openbank.demohoster.com")
+@FeignClient(name = "external-service-city", url = "https://openbank.demohoster.com")
 interface ExternalApi {
 
     @GetMapping("/api/public/cities/{kladrId}")
