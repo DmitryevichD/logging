@@ -1,11 +1,18 @@
 package by.dm13y.example.logging.logging.service.impl
 
+import by.dm13y.example.logging.logging.api.PlatformApi
 import by.dm13y.example.logging.logging.model.dto.ResourceDto
 import by.dm13y.example.logging.logging.service.ResourceService
+import org.springframework.stereotype.Service
 
-class ResourceServiceImpl : ResourceService {
+@Service
+class ResourceServiceImpl(
+    private val platformApi: PlatformApi
+) : ResourceService {
     override fun getPlatformValidResource(): ResourceDto {
-        TODO("Not yet implemented")
+        return platformApi.getValidCity().let {
+            ResourceDto(it.id)
+        }
     }
 
     override fun getPlatformInvalidResource(): ResourceDto {

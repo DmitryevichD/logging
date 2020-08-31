@@ -24,7 +24,7 @@ class RequestLoggingInterceptor: HandlerInterceptorAdapter() {
         response: HttpServletResponse,
         handler: Any
     ): Boolean {
-        log.info { "---> ${buildRequestDetailsLog(request)}" }
+        log.info { "------> ${buildRequestDetailsLog(request)}" }
         request.setAttribute(REQUEST_START_TIME_ATTRIBUTE, System.currentTimeMillis())
         return true
     }
@@ -37,7 +37,7 @@ class RequestLoggingInterceptor: HandlerInterceptorAdapter() {
     ) {
         val requestTime = request.getAttribute(REQUEST_START_TIME_ATTRIBUTE) as Long
         val responseTime = System.currentTimeMillis() - requestTime
-        val msg = "<--- ${request.protocol} ${response.status} (${responseTime}ms)"
+        val msg = "<------ ${request.protocol} ${response.status} (${responseTime}ms)"
         when {
             (responseTime < RESPONSE_MAX_NORMAL_TIME) -> log.info { msg }
             (responseTime < RESPONSE_MAX_WARN_TIME) -> log.warn { msg }
@@ -46,10 +46,7 @@ class RequestLoggingInterceptor: HandlerInterceptorAdapter() {
     }
 
     private fun buildRequestDetailsLog(request: HttpServletRequest): String {
-        TODO("Add platform logging request")
-        TODO("check with feign client")
-        TODO("Add external logging request")
-        TODO("check with feign client")
+        return "${request.method} ${request.requestURI} ${request.queryString.orEmpty()}"
     }
 
     companion object {
