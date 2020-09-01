@@ -15,7 +15,7 @@ interface PlatformApi {
     fun getValidCity(@PathVariable(name = "kladrId") kladrId: String = "1900000100000"): CityDto
 
     @GetMapping("/api/public/cities/{kladrId}")
-    fun getInvalidCity(@PathVariable(name = "kladrId") kladrId: String = "0000000100000"): CityDto
+    fun getInvalidCity(@PathVariable(name = "kladrId") kladrId: String = "asdfsasdfsdf"): CityDto
 
     @GetMapping("/api/public/cities/some-url")
     fun getUnknownUrl(): CityDto

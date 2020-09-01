@@ -1,5 +1,6 @@
 package by.dm13y.example.logging.logging.controller
 
+import by.dm13y.example.logging.logging.model.dto.CityDto
 import by.dm13y.example.logging.logging.model.dto.GeoCatalogCityDto
 import by.dm13y.example.logging.logging.model.dto.ResourceDto
 import by.dm13y.example.logging.logging.service.ResourceService
@@ -18,7 +19,7 @@ class ResourceController(
     }
 
     @GetMapping("/platform/invalid")
-    fun getInvalidPlatformResource(): ResourceDto {
+    fun getInvalidPlatformResource(): CityDto {
         return resoureService.getPlatformInvalidResource()
     }
 

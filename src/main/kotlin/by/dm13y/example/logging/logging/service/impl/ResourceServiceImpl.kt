@@ -2,6 +2,7 @@ package by.dm13y.example.logging.logging.service.impl
 
 import by.dm13y.example.logging.logging.api.ExternalApi
 import by.dm13y.example.logging.logging.api.PlatformApi
+import by.dm13y.example.logging.logging.model.dto.CityDto
 import by.dm13y.example.logging.logging.model.dto.GeoCatalogCityDto
 import by.dm13y.example.logging.logging.model.dto.ResourceDto
 import by.dm13y.example.logging.logging.model.dto.SearchDto
@@ -19,8 +20,8 @@ class ResourceServiceImpl(
         }
     }
 
-    override fun getPlatformInvalidResource(): ResourceDto {
-        TODO("Not yet implemented")
+    override fun getPlatformInvalidResource(): CityDto {
+        return platformApi.getInvalidCity()
     }
 
     override fun getPlatformUnknownResource(): ResourceDto {
