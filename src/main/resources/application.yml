@@ -4,9 +4,9 @@ server:
 feign:
   client:
     config:
-      default:
+      external-service-city:
         logger-level: full
-        requestInterceptors:
-          - by.dm13y.example.logging.logging.config.RequestFeignInterceptorConfig
+      default:
+        logger-level: basic
 
 logging.level.by.dm13y.example.logging.logging.api: DEBUG

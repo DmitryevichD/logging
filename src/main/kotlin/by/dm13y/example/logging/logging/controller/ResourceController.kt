@@ -1,5 +1,6 @@
 package by.dm13y.example.logging.logging.controller
 
+import by.dm13y.example.logging.logging.model.dto.GeoCatalogCityDto
 import by.dm13y.example.logging.logging.model.dto.ResourceDto
 import by.dm13y.example.logging.logging.service.ResourceService
 import org.springframework.web.bind.annotation.GetMapping
@@ -27,7 +28,7 @@ class ResourceController(
     }
 
     @GetMapping("/external/valid")
-    fun getValidExternalResource(): ResourceDto {
+    fun getValidExternalResource(): List<GeoCatalogCityDto> {
         return resoureService.getExternalValidResource()
     }
 
